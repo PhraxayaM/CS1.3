@@ -12,9 +12,16 @@ def is_palindrome(text):
     backwards, ignoring punctuation, whitespace, and letter casing."""
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
-    assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text)
+    print('hi')
+    reverse_text = text[::-1]
+    if reverse_text == text:
+        return True
+    return False
+    # assert isinstance(text, str), 'input is not a string: {}'.format(text)
+    # return is_palindrome_iterative(text)
     # return is_palindrome_recursive(text)
+
+
 
 
 def is_palindrome_iterative(text):
@@ -47,3 +54,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    text = 'racecar'
+    is_palindrome(text)
