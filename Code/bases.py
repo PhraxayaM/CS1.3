@@ -97,9 +97,15 @@ def decode(digits, base):
 
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
+
+    # We get the power by taking the length of the array and starting at the highest possible value
+    # When we create our loop, as we iterate through our array, our indexes will increment by 1 while
+    # our power will decrease by 1
+
     power = len(digits) - 1
     counter = 0
 
+    # iterate through digits
     for digit in digits:
         value_of_digit = COMPARE[digit]
         counter += value_of_digit * (base ** power)
@@ -124,10 +130,12 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
     # TODO: Encode number in binary (base 2)
+    # Create an empty string to keep track of each character in the conversion
     conversion = ''
-    # '0123456789abcdefghijklmnopqrstuvwxyz'
+    # Concatinate digit and string. The output will be '0123456789abcdefghijklmnopqrstuvwxyz'
     compare = string.digits + string.ascii_lowercase
 
+    # while the number we are passing through is greater than 0
     while number > 0:
         remainder = number % base
         number = number // base
@@ -156,6 +164,7 @@ def convert(digits, base1, base2):
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
     # TODO: Convert digits from base 2 to base 16 (and vice versa)
     # ...
+
     # TODO: Convert digits from base 2 to base 10 (and vice versa)
     # ...
     # TODO: Convert digits from base 10 to base 16 (and vice versa)

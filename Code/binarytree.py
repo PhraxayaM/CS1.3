@@ -16,7 +16,13 @@ class BinaryTreeNode(object):
     def is_leaf(self):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
-        return ... and ...
+        left_child = self.left
+        right_child = self.right
+
+        if left_child and right_child == None:
+            return True
+        return False
+        # return ... and ...
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
