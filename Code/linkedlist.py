@@ -103,7 +103,6 @@ class LinkedList(object):
 
         new_node = Node(item)
         next_node = self.head
-        node_count = 0
         prev_node = None
 
         if self.head is None or index == 0:
