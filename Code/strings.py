@@ -56,12 +56,16 @@ def find_all_indexes(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
     indices = []
+    #enumerate over the text we are passing. enumerating the text gives each text a value starting at 0, just like indexes
+    #
     for index, _ in enumerate(text):
         if pattern == text[index: (index + len(pattern))]:
             print('find_all_index is:' + text[index: (index + len(pattern))])
             indices.append(index)
 
     return indices
+
+
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)

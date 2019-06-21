@@ -90,6 +90,25 @@ class LinkedList(object):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
 
+
+        new_node = Node(item)
+        current_node = self.head
+        node_count = 0
+        prev_node = None
+        while node_count < index:
+            node_count += 1
+            prev_node = current_node
+            current_node = current_node.next
+
+            if node_count + 1 == index:
+                prev_node.next = new_node
+                new_node.next = current_node
+            node.next = curr_node.next
+            new_node.next = curr_node
+
+
+
+
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Best and worst case running time: ??? under what conditions? [TODO]"""
