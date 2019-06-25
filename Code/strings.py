@@ -5,11 +5,18 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+    """ old code
+    # if pattern in text:
+    #     return True
+    # else:
+    #     return False
+    """
+    found_index = find_all_indexes(text, pattern)
 
-    if pattern in text:
-        return True
-    else:
+    if found_index == []:
         return False
+
+    return True
 
 
 
@@ -19,7 +26,16 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_index here (iteratively and/or recursively)
+    found_index = find_all_indexes(text, pattern) 
 
+    if found_index == []:
+        return None
+
+    return found_index[0]
+
+
+
+    """Old code
     # create a variable to keep track of our index
     text_index = 0
     # if our pattern is empty, we will return our text_index, which is defaulted to be set at 0
@@ -29,10 +45,10 @@ def find_index(text, pattern):
     # while our text_index, which starts at 0, is not equal to the length of our text, the code will run until our
     # text_index and the length of the text we are passing in are the same.
     while text_index != len(text):
-        """ We are iterating through our pattern. For example, if the pattern is 'abc', 'i' will become 'a' and then loop through
+        We are iterating through our pattern. For example, if the pattern is 'abc', 'i' will become 'a' and then loop through
             the whole if statements below it. Once the if statements have been completed, 'i' then becomes 'b' and it loops again
             through the whole if statements.
-        """
+
         for i in range(len(pattern)):
             #if our text_index, which is currently at [0] plus our 'i', which starts at [0] is less than the length of our text
             #For example, it will be 0 + 0, followed by 0 + 1, then 0 + 2, until it is no longer less than the length of our text
@@ -46,7 +62,7 @@ def find_index(text, pattern):
                 if i == len(pattern) - 1:
                     return text_index
         text_index += 1
-
+"""
 
 
 def find_all_indexes(text, pattern):

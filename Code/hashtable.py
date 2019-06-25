@@ -100,8 +100,8 @@ class HashTable(object):
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: 0(1)
+        Worst case running time: 0(n) """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -144,7 +144,7 @@ class HashTable(object):
         """Resize this hash table's buckets and rehash all key-value entries.
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
-        Best and worst case running time: ??? under what conditions? [TODO]
+        Best and worst case running time: O(b)under what conditions? [TODO]
         Best and worst case space usage: ??? what uses this memory? [TODO]"""
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
@@ -153,12 +153,14 @@ class HashTable(object):
         elif new_size is 0:
             new_size = len(self.buckets) / 2  # Half size
 
+            #o(n)
         current_entries = self.items()
-
+            #2b new buckets => 0(b)
+            # self.__init__(new_size)
         self.buckets = [LinkedList() for i in range(new_size)]
         self.size = 0
 
-        for item in current_entries:
+        for item in current_entries: #0(l) where l is the length of the linked list
             self.set(item[0], item[1])
 
 
