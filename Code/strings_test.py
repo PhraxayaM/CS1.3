@@ -1,6 +1,6 @@
 #!python
 
-from strings import contains, find_index, find_all_indexes
+from strings import contains, find_index, find_all_indexes, contains_recursive
 import unittest
 
 
@@ -125,6 +125,22 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more test cases that check complex patterns or edge cases
         # You'll need a lot more than this to test your algorithm's robustness
         # ...
+
+    def test_contains_recursive_with_matching_patterns(self):
+        # Positive test cases (examples) with matching patterns
+        assert contains_recursive('abc', '') is True  # all strings contain empty string
+        assert contains_recursive('abc', 'a') is True  # single letters are easy
+        assert contains_recursive('abc', 'b') is True
+        assert contains_recursive('abc', 'c') is True
+        assert contains_recursive('abc', 'ab') is True  # multiple letters are harder
+        assert contains_recursive('abc', 'bc') is True
+        assert contains_recursive('abc', 'abc') is True  # all strings contain themselves
+        assert contains_recursive('aaa', 'a') is True  # multiple occurrences
+        assert contains_recursive('aaa', 'aa') is True  # overlapping pattern
+        # TODO: Write more positive test cases with assert is True statements
+        assert contains('boomshakalaka', 'haka') is True
+        assert contains('squirtleisaturtle', 'eisa') is True
+        assert contains('sprite', 'pri') is True
 
 
 if __name__ == '__main__':
