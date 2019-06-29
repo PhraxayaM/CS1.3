@@ -112,13 +112,13 @@ class LinkedList(object):
             self.append(item)
             return
 
-        for node in range(1, index):
+        for node in range(0, index):
             if prev_node is None:
                 prev_node = next_node
-                next_node = None
+                next_node = prev_node.next
             else:
                 prev_node = prev_node.next
-                next_node = prev_node.next
+                next_node = next_node.next
 
         prev_node.next = new_node
         new_node.next = next_node

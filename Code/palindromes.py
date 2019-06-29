@@ -12,6 +12,7 @@ def is_palindrome(text):
     backwards, ignoring punctuation, whitespace, and letter casing."""
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
+    """O(N/2) because worst case is when we get to the middle"""
 
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
     # return is_palindrome_iterative(text)
@@ -21,6 +22,7 @@ def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
+    """O(N/2) because worst case is when we get to the middle"""
     left_index = 0
     right_index = len(text)-1
     # While our left index is less than our right index. It moves the pointers until they meet in the middle
@@ -53,6 +55,7 @@ def is_palindrome_iterative(text):
     return True
 
 def is_palindrome_recursive(text, left=None, right=None):
+    """O(N/2) because worst case is when we get to the middle"""
     if left is None:
         left = 0
         right = len(text) - 1

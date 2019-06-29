@@ -89,20 +89,35 @@ class LinkedListTest(unittest.TestCase):
         assert ll.head.data == 'B'  # new head (at index 0)
         assert ll.tail.data == 'B'  # new tail (at index 0)
         assert ll.size == 1
+        print(ll)
         ll.insert_at_index(0, 'A')  # prepend('A')
         assert ll.head.data == 'A'  # new head (at index 0)
         assert ll.tail.data == 'B'  # unchanged (now at index 1)
         assert ll.size == 2
+        print(ll)
         ll.insert_at_index(2, 'D')  # append('D')
         assert ll.head.data == 'A'  # unchanged (at index 0)
         assert ll.tail.data == 'D'  # new tail (now at index 2)
         assert ll.size == 3
+        print(ll)
         ll.insert_at_index(2, 'C')  # insert 'C' between 'B' and 'D'
         assert ll.head.data == 'A'  # unchanged (at index 0)
         assert ll.tail.data == 'D'  # unchanged (now at index 3)
         assert ll.size == 4
+        print(ll)
+        ll.insert_at_index(2, 'E')  # insert 'C' between 'B' and 'D'
+        assert ll.head.data == 'A'  # unchanged (at index 0)
+        assert ll.tail.data == 'D'  # unchanged (now at index 3)
+        assert ll.size == 5
+        print(ll)
+        ll.insert_at_index(3, 'F')  # insert 'C' between 'B' and 'D'
+        assert ll.head.data == 'A'  # unchanged (at index 0)
+        assert ll.tail.data == 'D'  # unchanged (now at index 3)
+        assert ll.size == 6
+        print(ll)
+        assert ll.get_at_index(3) == 'F'  # head item
         with self.assertRaises(ValueError):
-            ll.insert_at_index(5, 'X')  # index too high
+            ll.insert_at_index(7, 'X')  # index too high
         with self.assertRaises(ValueError):
             ll.insert_at_index(-1, 'Y')  # index too low
 
